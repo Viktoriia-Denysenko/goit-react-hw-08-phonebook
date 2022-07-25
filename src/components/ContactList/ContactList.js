@@ -23,8 +23,8 @@ const ContactList = () => {
   return (
     <ul className={s.contactsList}>
       {data &&
-        visibleContacts.map(({ id, name, phone }) => (
-          <ContactListItem key={id} id={id} name={name} number={phone} />
+        visibleContacts.map(({ id, name, number }) => (
+          <ContactListItem key={id} id={id} name={name} number={number} />
         ))}
     </ul>
   );

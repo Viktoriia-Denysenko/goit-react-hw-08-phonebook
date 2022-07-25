@@ -1,4 +1,6 @@
 .listItem{
+    display: flex;
+    flex-direction: row;
     margin-bottom: 10px;
 }
 
@@ -8,12 +10,12 @@
 
 .itemElement{
     font-size: 20px;
-    margin-right: 10px;
+    margin-left: 10px;
 }
 
-.itemElement:last-child{
+/* .itemElement:last-child{
     margin-right: 0;
-}
+} */
 
 .button {
     display: inline-block;
@@ -21,6 +23,7 @@
     font-size: 14px;
     cursor: pointer;
     border-radius: 5px;
+    margin-left: 10px;
 }
 
 .button:hover{

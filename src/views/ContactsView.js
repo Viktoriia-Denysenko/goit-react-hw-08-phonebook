@@ -1,8 +1,8 @@
-import ContactForm from './ContactForm/ContactForm';
-import ContactList from './ContactList/ContactList';
-import Filter from './Fillter/Fillter';
+import ContactForm from 'components/ContactForm/ContactForm';
+import ContactList from 'components/ContactList/ContactList';
+import Filter from 'components/Fillter/Fillter';
 
-export function App() {
+export function ContactsView() {
   return (
     <div
       style={{

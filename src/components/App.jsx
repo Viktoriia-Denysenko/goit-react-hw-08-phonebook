@@ -1,8 +1,20 @@
-import ContactForm from './ContactForm/ContactForm';
-import ContactList from './ContactList/ContactList';
-import Filter from './Fillter/Fillter';
+import { Routes, Route } from 'react-router-dom';
+import { ContactsView } from 'views/ContactsView';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import HomeView from 'views/HomeView';
+import RegisterView from 'views/RegisterView';
+import LoginView from 'views/LoginView';
+import AppBarMenu from './AppBar';
+import authOperations from 'redux/auth/auth-operations';
 
 export function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(authOperations.fetchCurrentUser());
+  }, [dispatch]);
+
   return (
     <div
       style={{
@@ -13,11 +25,13 @@ export function App() {
         margin: '0 auto',
       }}
     >
-      <h1>Phonebook</h1>
-      <ContactForm />
-      <h2>Contacts</h2>
-      <Filter />
-      <ContactList />
+      <AppBarMenu />
+      <Routes>
+        <Route path="/" element={<HomeView />} />
+        <Route path="/register" element={<RegisterView />} />
+        <Route path="/login" element={<LoginView />} />
+        <Route path="/contacts" element={<ContactsView />} />
+      </Routes>
     </div>
   );
 }
