@@ -1,5 +1,7 @@
 import React from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import authSelectors from 'redux/auth/auth-selectors';
 
 const styles = {
   link: {
@@ -14,27 +16,32 @@ const styles = {
   },
 };
 
-const Navigation = () => (
-  <nav>
-    <NavLink
-      to="/"
-      exact
-      style={styles.link}
-      // activestyle={styles.activeLink}
-    >
-      Main Page
-    </NavLink>
+const Navigation = () => {
+  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
+  return (
+    <nav>
+      <NavLink
+        to="/"
+        exact
+        style={styles.link}
+        // activestyle={styles.activeLink}
+      >
+        Main Page
+      </NavLink>
 
-    <NavLink
-      to="/contacts"
-      // exact
-      style={styles.link}
-      // activeStyle={styles.activeLink}
-    >
-      Contacts
-    </NavLink>
-    <Outlet />
-  </nav>
-);
+      {isLoggedIn && (
+        <NavLink
+          to="/contacts"
+          // exact
+          style={styles.link}
+          // activeStyle={styles.activeLink}
+        >
+          Contacts
+        </NavLink>
+      )}
+      {/* <Outlet /> */}
+    </nav>
+  );
+};
 
 export default Navigation;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const styles = {
   link: {
@@ -25,7 +25,7 @@ export default function LoginNav() {
       >
         Log in
       </NavLink>
-      <Outlet />
+      {/* <Outlet /> */}
     </div>
   );
 }
