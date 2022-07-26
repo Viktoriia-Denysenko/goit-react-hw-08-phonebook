@@ -19,7 +19,7 @@ export default function RegisterNav() {
     <div>
       <NavLink
         to="/register"
-        // exact
+        exact="true"
         style={styles.link}
         // activestyle={styles.activeLink}
       >

@@ -19,7 +19,7 @@ export default function LoginNav() {
     <div>
       <NavLink
         to="/login"
-        // exact
+        exact="true"
         style={styles.link}
         // activeStyle={styles.activeLink}
       >

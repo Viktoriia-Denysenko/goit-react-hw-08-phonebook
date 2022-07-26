@@ -7,7 +7,7 @@ import Stack from '@mui/material/Stack';
 
 const ContactListItem = ({ id, name, number }) => {
   const [deleteContact] = useDeleteContactsMutation();
-  console.log(number);
+  // console.log(number);
   function stringToColor(string: string) {
     let hash = 0;
     let i;

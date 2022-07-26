@@ -36,7 +36,7 @@ const logIn = createAsyncThunk('auth/login', async credentials => {
   try {
     const { data } = await axios.post('/users/login', credentials);
     token.set(data.token);
-    console.log(data);
+    // console.log(data);
     return data;
   } catch (error) {
     // TODO: Добавить обработку ошибки error.message

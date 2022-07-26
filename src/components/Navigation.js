@@ -22,7 +22,7 @@ const Navigation = () => {
     <nav>
       <NavLink
         to="/"
-        exact
+        exact="true"
         style={styles.link}
         // activestyle={styles.activeLink}
       >
@@ -32,7 +32,7 @@ const Navigation = () => {
       {isLoggedIn && (
         <NavLink
           to="/contacts"
-          // exact
+          exact="true"
           style={styles.link}
           // activeStyle={styles.activeLink}
         >

@@ -24,7 +24,6 @@ import authSelectors from '../redux/auth/auth-selectors';
 
 export default function AppBarMenu() {
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
-  // return (
 
   return (
     <Box sx={{ flexGrow: 1 }}>
