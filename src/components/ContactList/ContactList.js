@@ -4,7 +4,7 @@ import { CssVarsProvider } from '@mui/joy/styles';
 import Typography from '@mui/joy/Typography';
 import Sheet from '@mui/joy/Sheet';
 import { List } from '@mui/material';
-import s from './ContactList.module.css';
+// import s from './ContactList.module.css';
 import { useSelector } from 'react-redux';
 import { getFilter } from '../../redux/filterSlice';
 import { useFetchContactsQuery } from '../../redux/contactSlice';

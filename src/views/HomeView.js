@@ -2,8 +2,6 @@ import React from 'react';
 import { CssVarsProvider } from '@mui/joy/styles';
 import Sheet from '@mui/joy/Sheet';
 import Typography from '@mui/joy/Typography';
-import TextField from '@mui/joy/TextField';
-import Button from '@mui/joy/Button';
 import { NavLink } from 'react-router-dom';
 import notebook from '../images/notebook18.jpg';
 
