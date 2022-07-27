@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-// import Button from '@mui/material/Button';
 
 const styles = {
   link: {
@@ -8,20 +7,19 @@ const styles = {
     textDecoration: 'none',
     padding: 12,
     fontWeight: 700,
-    color: '#7b1fa2',
+    color: '#5F35AE',
   },
   activeLink: {
     display: 'inline-block',
     textDecoration: 'none',
     padding: 12,
     fontWeight: 700,
-    color: '#ba68c8',
+    color: '#814DDE',
   },
 };
 
 export default function RegisterNav() {
   return (
-    // <Button color="primary" size="small">
     <NavLink
       to="/register"
       exact="true"
@@ -29,7 +27,5 @@ export default function RegisterNav() {
     >
       Sign up
     </NavLink>
-    // {/* <Outlet /> */}
-    // </Button>
   );
 }

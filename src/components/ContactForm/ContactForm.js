@@ -5,7 +5,6 @@ import Typography from '@mui/joy/Typography';
 import TextField from '@mui/joy/TextField';
 import Button from '@mui/joy/Button';
 import { nanoid } from 'nanoid';
-// import s from './ContactForm.module.css';
 import {
   useCreateContactsMutation,
   useFetchContactsQuery,
@@ -60,10 +59,13 @@ function ContactForm() {
   };
 
   return (
-    <CssVarsProvider>
+    <CssVarsProvider
+
+    >
       <Sheet
         sx={{
-          maxWidth: 500,
+          minWidth: 280,
+          maxHeight: 280,
           mx: 'auto',
           my: 4,
           py: 3,
@@ -73,6 +75,10 @@ function ContactForm() {
           gap: 2,
           borderRadius: 'sm',
           boxShadow: 'md',
+          mt: '20px',
+          mr: '0px',
+          ml: '0px',
+          pt: '5px',
         }}
       >
         <div>
@@ -86,6 +92,7 @@ function ContactForm() {
             name="name"
             type="text"
             value={name}
+            variant="solid"
             placeholder="John Doe"
             label="Name"
             onChange={handleChange}
@@ -96,6 +103,7 @@ function ContactForm() {
           <TextField
             name="number"
             type="tel"
+            variant="solid"
             placeholder="093-111-22-33"
             label="Number"
             value={number}
@@ -103,12 +111,16 @@ function ContactForm() {
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
+            sx={{
+              mt: 1,
+              color: '#fff',
+            }}
           />
           <Button
             type="submit"
             color="info"
             sx={{
-              mt: 1,
+              mt: 3,
             }}
           >
             Add contacts

@@ -9,14 +9,16 @@ const styles = {
     textDecoration: 'none',
     padding: 12,
     fontWeight: 700,
-    color: '#7b1fa2',
+    fontSize: 17,
+    color: '#5F35AE',
   },
   activeLink: {
     display: 'inline-block',
     textDecoration: 'none',
     padding: 12,
     fontWeight: 700,
-    color: '#ba68c8',
+    fontSize: 17,
+    color: '#814DDE',
   },
 };
 
@@ -41,7 +43,6 @@ const Navigation = () => {
           Contacts
         </NavLink>
       )}
-      {/* <Outlet /> */}
     </nav>
   );
 };

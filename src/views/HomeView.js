@@ -5,31 +5,18 @@ import Typography from '@mui/joy/Typography';
 import { NavLink } from 'react-router-dom';
 import notebook from '../images/notebook18.jpg';
 
-// const styles = {
-//   container: {
-//     minHeight: 'calc(100vh - 50px)',
-//     display: 'flex',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-//   title: {
-//     fontWeight: 500,
-//     fontSize: 48,
-//     textAlign: 'center',
-//   },
-// };
 const styles = {
   link: {
     display: 'inline-block',
     textDecoration: 'none',
     fontWeight: 700,
-    color: '#7b1fa2',
+    color: '#5F35AE',
   },
   activeLink: {
     display: 'inline-block',
     textDecoration: 'none',
     fontWeight: 700,
-    color: '#ba68c8',
+    color: '#814DDE',
   },
 };
 
@@ -39,15 +26,15 @@ export default function HomeView() {
       <Sheet
         sx={{
           minHeight: 'calc(100vh - 110px)',
-          minWidth: 1000,
+          minWidth: 350,
           mx: 'auto',
           my: 2,
           py: 3,
-          px: 2,
+          px: 1,
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'flex-start',
-          // alignItems: 'flex-start',
+
           gap: 3,
           borderRadius: 'sm',
           boxShadow: 'md',
@@ -62,12 +49,15 @@ export default function HomeView() {
           component="h1"
           sx={{
             mx: 'auto',
-            my: 2,
-            py: 3,
-            px: 2,
+            ml: '350px',
+            mt: 4,
           }}
         >
-          <b>Welcome!</b>
+          Welcome
+          <br />
+          to your
+          <br />
+          Phonebook!
         </Typography>
         <Typography
           level="h2"
@@ -84,7 +74,7 @@ export default function HomeView() {
             </NavLink>
           }
           fontSize="sm"
-          sx={{ alignSelf: 'center' }}
+          sx={{ alignSelf: 'center', mr: '50px' }}
         >
           Are you here for the first time?
         </Typography>
@@ -103,19 +93,11 @@ export default function HomeView() {
             </NavLink>
           }
           fontSize="sm"
-          sx={{ alignSelf: 'center' }}
+          sx={{ alignSelf: 'center', mr: '50px' }}
         >
           Have not we met before?
         </Typography>
       </Sheet>
     </CssVarsProvider>
   );
-  // <div style={styles.container}>
-  //   <h1 style={styles.title}>
-  //     Welcome
-  //     <span role="img" aria-label="Иконка приветствия">
-  //       💁‍♀️
-  //     </span>
-  //   </h1>
-  // </div>
 }

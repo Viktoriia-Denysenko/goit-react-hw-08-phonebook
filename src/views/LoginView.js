@@ -13,13 +13,13 @@ const styles = {
     display: 'inline-block',
     textDecoration: 'none',
     fontWeight: 700,
-    color: '#7b1fa2',
+    color: '#5F35AE',
   },
   activeLink: {
     display: 'inline-block',
     textDecoration: 'none',
     fontWeight: 700,
-    color: '#ba68c8',
+    color: '#814DDE',
   },
 };
 
@@ -73,17 +73,21 @@ export default function LoginView() {
           <TextField
             name="email"
             type="email"
+            variant="solid"
             value={email}
             placeholder="johndoe@email.com"
             label="Email"
+            required
             onChange={handleChange}
           />
           <TextField
             name="password"
             type="password"
+            variant="solid"
             placeholder="password"
             label="Password"
             value={password}
+            required
             onChange={handleChange}
           />
           <Button

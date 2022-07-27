@@ -1,10 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect, Suspense, lazy } from 'react';
-// import HomeView from 'views/HomeView';
-// import RegisterView from 'views/RegisterView';
-// import LoginView from 'views/LoginView';
-// import { ContactsView } from 'views/ContactsView';
+
 import AppBarMenu from './AppBarMenu';
 import authOperations from 'redux/auth/auth-operations';
 import PrivateRoute from './PrivateRoure';
@@ -32,8 +29,7 @@ export function App() {
         style={{
           minWidth: '1000px',
           display: 'inline-block',
-          // display: 'flex',
-          // justifyContent: 'space-around',
+
           padding: '10px',
           height: '100vh',
           margin: '0 auto',

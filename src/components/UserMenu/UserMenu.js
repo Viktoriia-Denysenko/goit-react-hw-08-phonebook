@@ -32,14 +32,10 @@ export default function UserMenu() {
     <>
       <Filter />
       <div style={styles.container}>
-        <Typography color="info" level="h7" component="h7">
+        <Typography sx={{ px: 1 }} color="info" level="h6" component="h6">
           Welcome,
           <b> {name}</b>
         </Typography>
-        {/* <span style={styles.name}>
-          Welcome,
-          {name}
-        </span> */}
         <IconButton
           color="info"
           variant="soft"
@@ -48,9 +44,6 @@ export default function UserMenu() {
         >
           <LogoutIcon />
         </IconButton>
-        {/* <button type="button" onClick={handleLogOut}>
-          Log out
-        </button> */}
       </div>
     </>
   );

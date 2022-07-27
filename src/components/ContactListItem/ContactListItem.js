@@ -1,21 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import s from './ContactListItem.module.css';
+
 import { useDeleteContactsMutation } from '../../redux/contactSlice';
 import Avatar from '@mui/material/Avatar';
-import Stack from '@mui/material/Stack';
+
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { ListItem } from '@mui/material';
+import ListItem from '@mui/joy/ListItem';
+import ListItemContent from '@mui/joy/ListItemContent';
+import ListItemDecorator from '@mui/joy/ListItemDecorator';
+import Typography from '@mui/joy/Typography';
+import ListDivider from '@mui/joy/ListDivider';
 
 const ContactListItem = ({ id, name, number }) => {
   const [deleteContact] = useDeleteContactsMutation();
-  // console.log(number);
+
   function stringToColor(string: string) {
     let hash = 0;
     let i;
 
-    /* eslint-disable no-bitwise */
     for (i = 0; i < string.length; i += 1) {
       hash = string.charCodeAt(i) + ((hash << 5) - hash);
     }
@@ -26,7 +29,6 @@ const ContactListItem = ({ id, name, number }) => {
       const value = (hash >> (i * 8)) & 0xff;
       color += `00${value.toString(16)}`.slice(-2);
     }
-    /* eslint-enable no-bitwise */
 
     return color;
   }
@@ -41,23 +43,54 @@ const ContactListItem = ({ id, name, number }) => {
   }
 
   return (
-    <ListItem>
-      <Stack direction="row" spacing={2}>
-        <Avatar {...stringAvatar({ name })} />
-      </Stack>
-      <span className={s.itemElement}>{name}:</span>
-      <span className={s.itemElement}>{number}</span>
-      <IconButton
-        aria-label="delete"
-        // color="primary"
-        onClick={() => deleteContact(id)}
+    <>
+      <ListItem
+        sx={{
+          display: 'flex',
+          justifyContent: 'flex-start',
+          alignItems: 'flex-start',
+
+          mt: 0.5,
+        }}
       >
-        <DeleteIcon />
-      </IconButton>
-      {/* <button className={s.button} onClick={() => deleteContact(id)}>
-        Delete
-      </button> */}
-    </ListItem>
+        <ListItemDecorator
+          sx={{ alignItems: 'center', justifyContent: 'center', mt: '5px' }}
+        >
+          <Avatar
+            sx={{
+              display: 'flex',
+              justifyContent: 'flex-start',
+              alignItems: 'flex-start',
+            }}
+            {...stringAvatar({ name })}
+          />
+        </ListItemDecorator>
+        <ListItemContent>
+          <Typography
+            sx={{
+              display: 'flex',
+              alignSelf: 'flex-start',
+            }}
+          >
+            {name}:
+          </Typography>
+          <Typography
+            sx={{
+              display: 'flex',
+              alignSelf: 'flex-start',
+            }}
+            level="body1"
+            noWrap
+          >
+            {number}
+          </Typography>
+        </ListItemContent>
+        <IconButton aria-label="delete" onClick={() => deleteContact(id)}>
+          <DeleteIcon />
+        </IconButton>
+      </ListItem>
+      <ListDivider />
+    </>
   );
 };
 
