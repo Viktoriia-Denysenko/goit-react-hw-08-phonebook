@@ -1,4 +1,9 @@
 import { useState } from 'react';
+import { CssVarsProvider } from '@mui/joy/styles';
+import Sheet from '@mui/joy/Sheet';
+import Typography from '@mui/joy/Typography';
+import TextField from '@mui/joy/TextField';
+import Button from '@mui/joy/Button';
 import { nanoid } from 'nanoid';
 import s from './ContactForm.module.css';
 import {
@@ -55,36 +60,62 @@ function ContactForm() {
   };
 
   return (
-    <>
-      <form className={s.form} onSubmit={handleSubmit}>
-        <label className={s.label}>Name</label>
-        <input
-          className={s.input}
-          value={name}
-          onChange={handleChange}
-          type="text"
-          name="name"
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          required
-        />
-
-        <label className={s.label}>Number</label>
-        <input
-          className={s.input}
-          value={number}
-          onChange={handleChange}
-          type="tel"
-          name="number"
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-          required
-        />
-        <button className={s.button} type="submit">
-          Add contacts
-        </button>
-      </form>
-    </>
+    <CssVarsProvider>
+      <Sheet
+        sx={{
+          maxWidth: 500,
+          mx: 'auto',
+          my: 4,
+          py: 3,
+          px: 2,
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 2,
+          borderRadius: 'sm',
+          boxShadow: 'md',
+        }}
+      >
+        <div>
+          <Typography level="h4" component="h1">
+            <b>Phonebook</b>
+          </Typography>
+          <Typography level="body2">Please, add your contacts</Typography>
+        </div>
+        <form onSubmit={handleSubmit}>
+          <TextField
+            name="name"
+            type="text"
+            value={name}
+            placeholder="John Doe"
+            label="Name"
+            onChange={handleChange}
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+            required
+          />
+          <TextField
+            name="number"
+            type="tel"
+            placeholder="093-111-22-33"
+            label="Number"
+            value={number}
+            onChange={handleChange}
+            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+            required
+          />
+          <Button
+            type="submit"
+            color="info"
+            sx={{
+              mt: 1,
+            }}
+          >
+            Add contacts
+          </Button>
+        </form>
+      </Sheet>
+    </CssVarsProvider>
   );
 }
 

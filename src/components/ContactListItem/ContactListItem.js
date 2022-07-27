@@ -4,6 +4,9 @@ import s from './ContactListItem.module.css';
 import { useDeleteContactsMutation } from '../../redux/contactSlice';
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
+import { ListItem } from '@mui/material';
 
 const ContactListItem = ({ id, name, number }) => {
   const [deleteContact] = useDeleteContactsMutation();
@@ -38,16 +41,23 @@ const ContactListItem = ({ id, name, number }) => {
   }
 
   return (
-    <li className={s.listItem}>
+    <ListItem>
       <Stack direction="row" spacing={2}>
         <Avatar {...stringAvatar({ name })} />
       </Stack>
       <span className={s.itemElement}>{name}:</span>
       <span className={s.itemElement}>{number}</span>
-      <button className={s.button} onClick={() => deleteContact(id)}>
+      <IconButton
+        aria-label="delete"
+        // color="primary"
+        onClick={() => deleteContact(id)}
+      >
+        <DeleteIcon />
+      </IconButton>
+      {/* <button className={s.button} onClick={() => deleteContact(id)}>
         Delete
-      </button>
-    </li>
+      </button> */}
+    </ListItem>
   );
 };
 

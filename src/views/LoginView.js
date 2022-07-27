@@ -1,15 +1,25 @@
+import { CssVarsProvider } from '@mui/joy/styles';
+import Sheet from '@mui/joy/Sheet';
+import Typography from '@mui/joy/Typography';
+import TextField from '@mui/joy/TextField';
+import Button from '@mui/joy/Button';
+import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import authOperations from '../redux/auth/auth-operations';
 
 const styles = {
-  form: {
-    width: 320,
+  link: {
+    display: 'inline-block',
+    textDecoration: 'none',
+    fontWeight: 700,
+    color: '#7b1fa2',
   },
-  label: {
-    display: 'flex',
-    flexDirection: 'column',
-    marginBottom: 15,
+  activeLink: {
+    display: 'inline-block',
+    textDecoration: 'none',
+    fontWeight: 700,
+    color: '#ba68c8',
   },
 };
 
@@ -37,32 +47,73 @@ export default function LoginView() {
   };
 
   return (
-    <div>
-      <h1>Log in page</h1>
-
-      <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
-        <label style={styles.label}>
-          Email
-          <input
-            type="email"
+    <CssVarsProvider>
+      <Sheet
+        sx={{
+          maxWidth: 350,
+          minHeight: 'calc(100vh - 200px)',
+          mx: 'auto',
+          my: 4,
+          py: 3,
+          px: 2,
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 2,
+          borderRadius: 'sm',
+          boxShadow: 'md',
+        }}
+      >
+        <div>
+          <Typography level="h4" component="h1">
+            <b>Welcome!</b>
+          </Typography>
+          <Typography level="body2">Sign in to continue</Typography>
+        </div>
+        <form onSubmit={handleSubmit}>
+          <TextField
             name="email"
+            type="email"
             value={email}
+            placeholder="johndoe@email.com"
+            label="Email"
             onChange={handleChange}
           />
-        </label>
-
-        <label style={styles.label}>
-          Password
-          <input
-            type="password"
+          <TextField
             name="password"
+            type="password"
+            placeholder="password"
+            label="Password"
             value={password}
             onChange={handleChange}
           />
-        </label>
-
-        <button type="submit">Log in</button>
-      </form>
-    </div>
+          <Button
+            type="submit"
+            color="info"
+            sx={{
+              mt: 1,
+            }}
+          >
+            Log in
+          </Button>
+        </form>
+        <Typography
+          endDecorator={
+            <NavLink
+              to="/register"
+              exact="true"
+              style={({ isActive }) =>
+                isActive ? styles.activeLink : styles.link
+              }
+            >
+              Sign up
+            </NavLink>
+          }
+          fontSize="sm"
+          sx={{ alignSelf: 'center' }}
+        >
+          Don't have an account?
+        </Typography>
+      </Sheet>
+    </CssVarsProvider>
   );
 }

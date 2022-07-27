@@ -5,7 +5,7 @@ import React, { useEffect, Suspense, lazy } from 'react';
 // import RegisterView from 'views/RegisterView';
 // import LoginView from 'views/LoginView';
 // import { ContactsView } from 'views/ContactsView';
-import AppBarMenu from './AppBar';
+import AppBarMenu from './AppBarMenu';
 import authOperations from 'redux/auth/auth-operations';
 import PrivateRoute from './PrivateRoure';
 import PublicRoute from './PublicRoute';
@@ -30,8 +30,10 @@ export function App() {
     !isRefreshingCurrentUser && (
       <div
         style={{
-          minWidth: '400px',
+          minWidth: '1000px',
           display: 'inline-block',
+          // display: 'flex',
+          // justifyContent: 'space-around',
           padding: '10px',
           height: '100vh',
           margin: '0 auto',

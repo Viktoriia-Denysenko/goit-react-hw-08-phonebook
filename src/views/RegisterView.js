@@ -1,15 +1,25 @@
+import { CssVarsProvider } from '@mui/joy/styles';
+import Sheet from '@mui/joy/Sheet';
+import Typography from '@mui/joy/Typography';
+import TextField from '@mui/joy/TextField';
+import Button from '@mui/joy/Button';
+import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import authOperations from '../redux/auth/auth-operations';
 
 const styles = {
-  form: {
-    width: 320,
+  link: {
+    display: 'inline-block',
+    textDecoration: 'none',
+    fontWeight: 700,
+    color: '#7b1fa2',
   },
-  label: {
-    display: 'flex',
-    flexDirection: 'column',
-    marginBottom: 15,
+  activeLink: {
+    display: 'inline-block',
+    textDecoration: 'none',
+    fontWeight: 700,
+    color: '#ba68c8',
   },
 };
 
@@ -41,37 +51,81 @@ export default function RegisterView() {
   };
 
   return (
-    <div>
-      <h1>Sign in page</h1>
-
-      <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
-        <label style={styles.label}>
-          Name
-          <input type="text" name="name" value={name} onChange={handleChange} />
-        </label>
-
-        <label style={styles.label}>
-          Email
-          <input
-            type="email"
-            name="email"
-            value={email}
+    <CssVarsProvider>
+      <Sheet
+        sx={{
+          maxWidth: 350,
+          minHeight: 'calc(100vh - 200px)',
+          mx: 'auto',
+          my: 4,
+          py: 3,
+          px: 2,
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 2,
+          borderRadius: 'sm',
+          boxShadow: 'md',
+        }}
+      >
+        <div>
+          <Typography level="h4" component="h1">
+            <b>Welcome!</b>
+          </Typography>
+          <Typography level="body2">Sign up to continue</Typography>
+        </div>
+        <form onSubmit={handleSubmit} autoComplete="off">
+          <TextField
+            name="name"
+            type="text"
+            value={name}
+            placeholder="John Doe"
+            label="Name"
             onChange={handleChange}
           />
-        </label>
-
-        <label style={styles.label}>
-          Password
-          <input
-            type="password"
+          <TextField
+            name="email"
+            type="email"
+            value={email}
+            placeholder="johndoe@email.com"
+            label="Email"
+            onChange={handleChange}
+          />
+          <TextField
             name="password"
+            type="password"
+            placeholder="password"
+            label="Password"
             value={password}
             onChange={handleChange}
           />
-        </label>
-
-        <button type="submit">Sign in</button>
-      </form>
-    </div>
+          <Button
+            type="submit"
+            color="info"
+            sx={{
+              mt: 1,
+            }}
+          >
+            Sign up
+          </Button>
+        </form>
+        <Typography
+          endDecorator={
+            <NavLink
+              to="/login"
+              exact="true"
+              style={({ isActive }) =>
+                isActive ? styles.activeLink : styles.link
+              }
+            >
+              Log in
+            </NavLink>
+          }
+          fontSize="sm"
+          sx={{ alignSelf: 'center' }}
+        >
+          Have you already got an account?
+        </Typography>
+      </Sheet>
+    </CssVarsProvider>
   );
 }

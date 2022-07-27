@@ -9,10 +9,14 @@ const styles = {
     textDecoration: 'none',
     padding: 12,
     fontWeight: 700,
-    color: '#2A363B',
+    color: '#7b1fa2',
   },
   activeLink: {
-    color: '#E84A5F',
+    display: 'inline-block',
+    textDecoration: 'none',
+    padding: 12,
+    fontWeight: 700,
+    color: '#ba68c8',
   },
 };
 
@@ -23,8 +27,7 @@ const Navigation = () => {
       <NavLink
         to="/"
         exact="true"
-        style={styles.link}
-        // activestyle={styles.activeLink}
+        style={({ isActive }) => (isActive ? styles.activeLink : styles.link)}
       >
         Main Page
       </NavLink>
@@ -33,8 +36,7 @@ const Navigation = () => {
         <NavLink
           to="/contacts"
           exact="true"
-          style={styles.link}
-          // activeStyle={styles.activeLink}
+          style={({ isActive }) => (isActive ? styles.activeLink : styles.link)}
         >
           Contacts
         </NavLink>

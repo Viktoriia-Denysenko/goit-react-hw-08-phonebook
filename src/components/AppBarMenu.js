@@ -27,41 +27,19 @@ export default function AppBarMenu() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar>
-          {/* <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton> */}
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <Navigation />
-          </Typography>
+      <AppBar position="static" color="default">
+        <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
+          <Navigation />
           {isLoggedIn ? (
             <UserMenu />
           ) : (
-            <>
-              <Button color="info">
-                <RegisterNav />
-              </Button>
-              <Button color="info">
-                <LoginNav />
-              </Button>
-            </>
+            <div>
+              <RegisterNav />
+              <LoginNav />
+            </div>
           )}
         </Toolbar>
       </AppBar>
     </Box>
   );
-  //   <header style={styles.header}>
-  //     <Navigation />
-  //     {/* <UserMenu /> */}
-  //     {/* <AuthNav /> */}
-  //     {isLoggedIn ? <UserMenu /> : <AuthNav />}
-  //   </header>
-  // );
 }
