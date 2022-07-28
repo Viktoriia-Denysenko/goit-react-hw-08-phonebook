@@ -48,8 +48,8 @@ export default function HomeView() {
           component="h1"
           sx={{
             mx: 'auto',
-            ml: '345px',
-            mt: 6,
+            ml: '340px',
+            mt: 3,
           }}
         >
           Welcome
@@ -73,7 +73,7 @@ export default function HomeView() {
             </NavLink>
           }
           fontSize="sm"
-          sx={{ alignSelf: 'center', mr: '50px' }}
+          sx={{ alignSelf: 'center', mr: '55px' }}
         >
           Are you here for the first time?
         </Typography>
@@ -92,7 +92,7 @@ export default function HomeView() {
             </NavLink>
           }
           fontSize="sm"
-          sx={{ alignSelf: 'center', mr: '60px' }}
+          sx={{ alignSelf: 'center', mr: '65px' }}
         >
           Have not we met before?
         </Typography>

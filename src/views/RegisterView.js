@@ -1,9 +1,10 @@
 import { CssVarsProvider } from '@mui/joy/styles';
 import { Sheet, Typography, TextField, Button } from '@mui/joy';
 import { NavLink } from 'react-router-dom';
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import authOperations from '../redux/auth/auth-operations';
+import authSelectors from '../redux/auth/auth-selectors';
 
 const styles = {
   link: {
@@ -25,6 +26,8 @@ export default function RegisterView() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState(null);
+  const isError = useSelector(authSelectors.getErrorRegister);
 
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
@@ -42,10 +45,16 @@ export default function RegisterView() {
   const handleSubmit = e => {
     e.preventDefault();
     dispatch(authOperations.register({ name, email, password }));
-    setName('');
-    setEmail('');
-    setPassword('');
+    // setName('');
+    // setEmail('');
+    // setPassword('');
   };
+
+  useEffect(() => {
+    if (isError) {
+      setError(true);
+    }
+  }, [isError]);
 
   return (
     <CssVarsProvider>
@@ -104,6 +113,7 @@ export default function RegisterView() {
               mt: 2,
             }}
           />
+
           <Button
             type="submit"
             color="primary"
@@ -114,6 +124,16 @@ export default function RegisterView() {
             Sign up
           </Button>
         </form>
+        {error && (
+          <Typography
+            sx={{
+              color: '#ff0000',
+            }}
+          >
+            Please, check your data! Does your password contain at least 7
+            characters? Have you already got an account?
+          </Typography>
+        )}
         <Typography
           endDecorator={
             <NavLink

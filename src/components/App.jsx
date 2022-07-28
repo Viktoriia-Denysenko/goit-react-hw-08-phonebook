@@ -12,6 +12,7 @@ const HomeView = lazy(() => import('views/HomeView'));
 const RegisterView = lazy(() => import('views/RegisterView'));
 const LoginView = lazy(() => import('views/LoginView'));
 const ContactsView = lazy(() => import('views/ContactsView'));
+const NotFoundView = lazy(() => import('views/NotFoundView'));
 
 export function App() {
   const dispatch = useDispatch();
@@ -70,6 +71,7 @@ export function App() {
                 </PrivateRoute>
               }
             />
+            <Route path="*" element={<NotFoundView />}></Route>
           </Routes>
         </Suspense>
       </div>

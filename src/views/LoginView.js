@@ -50,8 +50,8 @@ export default function LoginView() {
   const handleSubmit = e => {
     e.preventDefault();
     dispatch(authOperations.logIn({ email, password }));
-    setEmail('');
-    setPassword('');
+    // setEmail('');
+    // setPassword('');
   };
 
   return (
@@ -99,19 +99,7 @@ export default function LoginView() {
               mt: 2,
             }}
           />
-          {error && (
-            <Typography
-              sx={{
-                color: '#ff0000',
-                position: 'absolute',
-                top: '248px',
-                left: '25%',
-                transform: 'translateX(-15%)',
-              }}
-            >
-              Please, check your email and password!
-            </Typography>
-          )}
+
           <Button
             type="submit"
             color="primary"
@@ -122,6 +110,15 @@ export default function LoginView() {
             Log in
           </Button>
         </form>
+        {error && (
+          <Typography
+            sx={{
+              color: '#ff0000',
+            }}
+          >
+            Please, check your email and password!
+          </Typography>
+        )}
         <Typography
           endDecorator={
             <NavLink
