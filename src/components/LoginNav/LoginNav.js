@@ -7,14 +7,14 @@ const styles = {
     textDecoration: 'none',
     padding: 12,
     fontWeight: 700,
-    color: '#5F35AE',
+    color: '#054DA7',
   },
   activeLink: {
     display: 'inline-block',
     textDecoration: 'none',
     padding: 12,
     fontWeight: 700,
-    color: '#814DDE',
+    color: '#096BDE',
   },
 };
 

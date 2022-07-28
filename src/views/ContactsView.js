@@ -1,7 +1,6 @@
-import ContactForm from 'components/ContactForm/ContactForm';
-import ContactList from 'components/ContactList/ContactList';
 import Sheet from '@mui/joy/Sheet';
-// import Filter from 'components/Filter/Filter';
+import ContactForm from 'components/ContactForm/ContactForm';
+import ContactListSlider from 'components/ContactListSlider/ContactListSlider';
 
 export default function ContactsView() {
   return (
@@ -15,16 +14,13 @@ export default function ContactsView() {
         px: 2,
         display: 'flex',
         justifyContent: 'space-around',
-
         gap: 3,
         borderRadius: 'sm',
         boxShadow: 'md',
       }}
     >
       <ContactForm />
-      {/* <Filter /> */}
-      <ContactList />
+      <ContactListSlider />
     </Sheet>
-
   );
 }

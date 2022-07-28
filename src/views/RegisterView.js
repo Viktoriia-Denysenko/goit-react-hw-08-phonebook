@@ -1,8 +1,5 @@
 import { CssVarsProvider } from '@mui/joy/styles';
-import Sheet from '@mui/joy/Sheet';
-import Typography from '@mui/joy/Typography';
-import TextField from '@mui/joy/TextField';
-import Button from '@mui/joy/Button';
+import { Sheet, Typography, TextField, Button } from '@mui/joy';
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -13,13 +10,13 @@ const styles = {
     display: 'inline-block',
     textDecoration: 'none',
     fontWeight: 700,
-    color: '#5F35AE',
+    color: '#054DA7',
   },
   activeLink: {
     display: 'inline-block',
     textDecoration: 'none',
     fontWeight: 700,
-    color: '#814DDE',
+    color: '#096BDE',
   },
 };
 
@@ -55,7 +52,7 @@ export default function RegisterView() {
       <Sheet
         sx={{
           maxWidth: 350,
-          minHeight: 'calc(100vh - 200px)',
+          minHeight: 'calc(100vh - 250px)',
           mx: 'auto',
           my: 4,
           py: 3,
@@ -80,7 +77,6 @@ export default function RegisterView() {
             value={name}
             placeholder="John Doe"
             label="Name"
-            variant="solid"
             required
             onChange={handleChange}
           />
@@ -90,9 +86,11 @@ export default function RegisterView() {
             value={email}
             placeholder="johndoe@email.com"
             label="Email"
-            variant="solid"
             required
             onChange={handleChange}
+            sx={{
+              mt: 2,
+            }}
           />
           <TextField
             name="password"
@@ -100,15 +98,17 @@ export default function RegisterView() {
             placeholder="password"
             label="Password"
             value={password}
-            variant="solid"
             required
             onChange={handleChange}
+            sx={{
+              mt: 2,
+            }}
           />
           <Button
             type="submit"
-            color="info"
+            color="primary"
             sx={{
-              mt: 1,
+              mt: 4,
             }}
           >
             Sign up

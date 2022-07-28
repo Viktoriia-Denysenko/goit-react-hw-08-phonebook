@@ -1,9 +1,6 @@
 import { useState } from 'react';
 import { CssVarsProvider } from '@mui/joy/styles';
-import Sheet from '@mui/joy/Sheet';
-import Typography from '@mui/joy/Typography';
-import TextField from '@mui/joy/TextField';
-import Button from '@mui/joy/Button';
+import { Sheet, Typography, TextField, Button } from '@mui/joy';
 import { nanoid } from 'nanoid';
 import {
   useCreateContactsMutation,
@@ -59,13 +56,11 @@ function ContactForm() {
   };
 
   return (
-    <CssVarsProvider
-
-    >
+    <CssVarsProvider>
       <Sheet
         sx={{
-          minWidth: 280,
-          maxHeight: 280,
+          minWidth: 320,
+          maxHeight: 340,
           mx: 'auto',
           my: 4,
           py: 3,
@@ -92,18 +87,20 @@ function ContactForm() {
             name="name"
             type="text"
             value={name}
-            variant="solid"
+            // variant="solid"
             placeholder="John Doe"
             label="Name"
             onChange={handleChange}
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
+            sx={{
+              mt: 1,
+            }}
           />
           <TextField
             name="number"
             type="tel"
-            variant="solid"
             placeholder="093-111-22-33"
             label="Number"
             value={number}
@@ -112,15 +109,15 @@ function ContactForm() {
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
             sx={{
-              mt: 1,
+              mt: 4,
               color: '#fff',
             }}
           />
           <Button
             type="submit"
-            color="info"
+            color="primary"
             sx={{
-              mt: 3,
+              mt: 5,
             }}
           >
             Add contacts

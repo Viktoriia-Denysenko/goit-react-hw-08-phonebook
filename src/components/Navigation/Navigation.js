@@ -10,7 +10,7 @@ const styles = {
     padding: 12,
     fontWeight: 700,
     fontSize: 17,
-    color: '#5F35AE',
+    color: '#054DA7',
   },
   activeLink: {
     display: 'inline-block',
@@ -18,7 +18,7 @@ const styles = {
     padding: 12,
     fontWeight: 700,
     fontSize: 17,
-    color: '#814DDE',
+    color: '#096BDE',
   },
 };
 

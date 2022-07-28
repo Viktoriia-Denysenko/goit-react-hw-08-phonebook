@@ -1,7 +1,5 @@
 import React from 'react';
-
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
+import { Box, TextField } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
 import { getFilter, filtrate } from '../../redux/filterSlice';
 
@@ -26,7 +24,7 @@ const Filter = () => {
         label="Find contacts by name"
         id="outlined-textarea"
         placeholder="Enter the name"
-        color="secondary"
+        color="primary"
         size="small"
         value={filter}
         onChange={changeFilter}

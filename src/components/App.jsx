@@ -1,12 +1,12 @@
 import { Routes, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect, Suspense, lazy } from 'react';
-
-import AppBarMenu from './AppBarMenu';
+import AppBarMenu from './AppBarMenu/AppBarMenu';
 import authOperations from 'redux/auth/auth-operations';
-import PrivateRoute from './PrivateRoure';
-import PublicRoute from './PublicRoute';
+import PrivateRoute from './PrivateRoure/PrivateRoure';
+import PublicRoute from './PublicRoute/PublicRoute';
 import authSelectors from 'redux/auth/auth-selectors';
+import Loader from './Loader/Loader';
 
 const HomeView = lazy(() => import('views/HomeView'));
 const RegisterView = lazy(() => import('views/RegisterView'));
@@ -36,7 +36,7 @@ export function App() {
         }}
       >
         <AppBarMenu />
-        <Suspense fallback={<p>Loading...</p>}>
+        <Suspense fallback={<Loader />}>
           <Routes>
             <Route
               path="/"

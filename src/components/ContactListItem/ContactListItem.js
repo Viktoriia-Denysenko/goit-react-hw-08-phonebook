@@ -1,16 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import { useDeleteContactsMutation } from '../../redux/contactSlice';
-import Avatar from '@mui/material/Avatar';
-
-import IconButton from '@mui/material/IconButton';
+import { Avatar, IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
-import ListItem from '@mui/joy/ListItem';
-import ListItemContent from '@mui/joy/ListItemContent';
-import ListItemDecorator from '@mui/joy/ListItemDecorator';
-import Typography from '@mui/joy/Typography';
-import ListDivider from '@mui/joy/ListDivider';
+import {
+  ListItem,
+  ListItemContent,
+  ListItemDecorator,
+  Typography,
+  ListDivider,
+} from '@mui/joy';
+import { useDeleteContactsMutation } from '../../redux/contactSlice';
 
 const ContactListItem = ({ id, name, number }) => {
   const [deleteContact] = useDeleteContactsMutation();
@@ -49,7 +48,6 @@ const ContactListItem = ({ id, name, number }) => {
           display: 'flex',
           justifyContent: 'flex-start',
           alignItems: 'flex-start',
-
           mt: 0.5,
         }}
       >
@@ -85,7 +83,11 @@ const ContactListItem = ({ id, name, number }) => {
             {number}
           </Typography>
         </ListItemContent>
-        <IconButton aria-label="delete" onClick={() => deleteContact(id)}>
+        <IconButton
+          color="primary"
+          aria-label="delete"
+          onClick={() => deleteContact(id)}
+        >
           <DeleteIcon />
         </IconButton>
       </ListItem>

@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
-import authSelectors from '../../redux/auth/auth-selectors';
-import authOperations from '../../redux/auth/auth-operations';
 import IconButton from '@mui/joy/IconButton';
 import LogoutIcon from '@mui/icons-material/Logout';
 import Typography from '@mui/joy/Typography';
+import authSelectors from '../../redux/auth/auth-selectors';
+import authOperations from '../../redux/auth/auth-operations';
 import Filter from 'components/Filter/Filter';
 
 const styles = {
@@ -32,12 +32,12 @@ export default function UserMenu() {
     <>
       <Filter />
       <div style={styles.container}>
-        <Typography sx={{ px: 1 }} color="info" level="h6" component="h6">
+        <Typography sx={{ px: 1 }} color="primary" level="h6" component="h6">
           Welcome,
           <b> {name}</b>
         </Typography>
         <IconButton
-          color="info"
+          color="primary"
           variant="soft"
           type="button"
           onClick={handleLogOut}

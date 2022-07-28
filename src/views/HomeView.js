@@ -10,13 +10,13 @@ const styles = {
     display: 'inline-block',
     textDecoration: 'none',
     fontWeight: 700,
-    color: '#5F35AE',
+    color: '#054DA7',
   },
   activeLink: {
     display: 'inline-block',
     textDecoration: 'none',
     fontWeight: 700,
-    color: '#814DDE',
+    color: '#096BDE',
   },
 };
 
@@ -34,7 +34,6 @@ export default function HomeView() {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'flex-start',
-
           gap: 3,
           borderRadius: 'sm',
           boxShadow: 'md',
@@ -49,8 +48,8 @@ export default function HomeView() {
           component="h1"
           sx={{
             mx: 'auto',
-            ml: '350px',
-            mt: 4,
+            ml: '345px',
+            mt: 6,
           }}
         >
           Welcome
@@ -93,7 +92,7 @@ export default function HomeView() {
             </NavLink>
           }
           fontSize="sm"
-          sx={{ alignSelf: 'center', mr: '50px' }}
+          sx={{ alignSelf: 'center', mr: '60px' }}
         >
           Have not we met before?
         </Typography>
